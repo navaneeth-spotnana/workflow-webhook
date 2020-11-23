@@ -20,7 +20,7 @@ WEBHOOK_SIGNATURE=$(echo -n "$WEBHOOK_DATA" | openssl sha1 -hmac "$webhook_secre
 WEBHOOK_ENDPOINT=$webhook_url
 
 
-echo "::set-output name=request_body::$WEBHOOK_DATA"
+echo "::set-output name=WEBHOOK_DATA::$WEBHOOK_DATA"
 
 curl -k -v --fail \
     -H "Content-Type: $CONTENT_TYPE" \
