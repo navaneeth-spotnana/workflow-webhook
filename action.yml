@@ -14,7 +14,7 @@ inputs:
     description: 'Optional additional data to include in the payload'
 
 outputs:
-  request_payload: # id of output
+  WEBHOOK_DATA:
     description: 'The request sent to AWS'
     
 runs:
