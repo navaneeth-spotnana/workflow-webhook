@@ -12,6 +12,10 @@ inputs:
   webhook_type: 'json | form-urlencoded | json-extended'
   data:
     description: 'Optional additional data to include in the payload'
+
+outputs:
+  request_payload: # id of output
+    description: 'The request sent to AWS'
     
 runs:
   using: 'docker'
