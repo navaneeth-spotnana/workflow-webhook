@@ -16,9 +16,10 @@ fi
 CONTENT_TYPE="application/json"
 
 WEBHOOK_DATA="{\"event\":\"$GITHUB_EVENT_NAME\",\"repository\":\"$GITHUB_REPOSITORY\",\"commit\":\"$GITHUB_SHA\",\"ref\":\"$GITHUB_REF\",\"head\":\"$GITHUB_HEAD_REF\",\"workflow\":\"$GITHUB_WORKFLOW\",\"sender\": {\"id\": 12345}}"
-
 WEBHOOK_SIGNATURE=$(echo -n "$WEBHOOK_DATA" | openssl sha1 -hmac "$webhook_secret" -binary | xxd -p)
 WEBHOOK_ENDPOINT=$webhook_url
+
+echo "Payload: $WEBHOOK_DATA"
 
 curl -k -v --fail \
     -H "Content-Type: $CONTENT_TYPE" \
