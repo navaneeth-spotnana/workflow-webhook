@@ -19,7 +19,8 @@ WEBHOOK_DATA="{\"event\":\"$GITHUB_EVENT_NAME\",\"repository\":\"$GITHUB_REPOSIT
 WEBHOOK_SIGNATURE=$(echo -n "$WEBHOOK_DATA" | openssl sha1 -hmac "$webhook_secret" -binary | xxd -p)
 WEBHOOK_ENDPOINT=$webhook_url
 
-echo "Payload: $WEBHOOK_DATA"
+
+echo "::set-output name=WEBHOOK_DATA::$WEBHOOK_DATA"
 
 curl -k -v --fail \
     -H "Content-Type: $CONTENT_TYPE" \
