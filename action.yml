@@ -7,15 +7,6 @@ inputs:
   webhook_secret:
     description: 'The secret with which a signature hash is generated'
     required: true
-  webhook_auth:
-    description: 'Credentials to be used for BASIC authentication (optional)'
-  webhook_type: 'json | form-urlencoded | json-extended'
-  data:
-    description: 'Optional additional data to include in the payload'
-
-outputs:
-  WEBHOOK_DATA:
-    description: 'The request sent to AWS'
     
 runs:
   using: 'docker'
