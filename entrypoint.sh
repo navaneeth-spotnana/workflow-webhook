@@ -14,8 +14,8 @@ fi
 
 
 CONTENT_TYPE="application/json"
-
-WEBHOOK_DATA="{\"event\":\"$GITHUB_EVENT_NAME\",\"repository\":\"$GITHUB_REPOSITORY\",\"commit\":\"$GITHUB_SHA\",\"ref\":\"$GITHUB_REF\",\"head\":\"$GITHUB_HEAD_REF\",\"workflow\":\"$GITHUB_WORKFLOW\",\"sender\": {\"id\": 12345}}"
+GITHUB_EVENT_NAME=push
+WEBHOOK_DATA="{\"repository\":\"$GITHUB_REPOSITORY\",\"commit\":\"$GITHUB_SHA\",\"ref\":\"$GITHUB_REF\",\"head\":\"$GITHUB_HEAD_REF\",\"workflow\":\"$GITHUB_WORKFLOW\",\"sender\": {\"id\": 12345}}"
 WEBHOOK_SIGNATURE=$(echo -n "$WEBHOOK_DATA" | openssl sha1 -hmac "$webhook_secret" -binary | xxd -p)
 WEBHOOK_ENDPOINT=$webhook_url
 
